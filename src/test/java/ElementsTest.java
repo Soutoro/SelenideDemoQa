@@ -1,8 +1,6 @@
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import pages.ButtonsPage;
 import pages.TextBoxPage;
 
 import static com.codeborne.selenide.Condition.text;
@@ -37,6 +35,26 @@ public class ElementsTest {
                 .resultEmail("test@test.com")
                 .setCurrentAddress("Tuduevo")
                 .setPermanentAddress("Suduevo");
+    }
+
+    @Test
+    @Tags({
+            @Tag("SMOKE"),
+            @Tag("REGRESS"),
+    })
+    @DisplayName("Тест на проверку нажатия на кнопки")
+    public void clickButtonsTest() {
+
+        ButtonsPage buttonsPage = new ButtonsPage();
+
+        buttonsPage.openButtonsTab()
+                        .dblClickBtn()
+                        .resultDblClickBtn()
+                        .rghtClickBtn()
+                        .resultRghtClickBtn()
+                        .clickBtn()
+                        .resultClickBtn();
+
     }
 
 }
