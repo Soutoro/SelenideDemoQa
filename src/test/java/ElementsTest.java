@@ -2,19 +2,19 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 import pages.ButtonsPage;
 import pages.TextBoxPage;
+import pages.WebTablesPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selectors.byTitle;
+import static com.codeborne.selenide.Selenide.*;
 
-public class ElementsTest {
+public class ElementsTest extends TestBase {
 
     @BeforeEach
     void setup() {
 
-        open("https://demoqa.com/elements");
-        Configuration.timeout = 10000;
+        open("/elements");
 
     }
 
@@ -54,6 +54,15 @@ public class ElementsTest {
                         .resultRghtClickBtn()
                         .clickBtn()
                         .resultClickBtn();
+
+    }
+
+    @Test
+    public void deletingEntryFromTable() {
+        WebTablesPage webTablesPage = new WebTablesPage()
+                .openWebTablesTab().
+                findAndDeleteTableWithVega("Vega", "Delete").
+                checkDeletingTable("Vega");
 
     }
 

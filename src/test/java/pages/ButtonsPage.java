@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ButtonsPage {
 
-    private SelenideElement buttonsTab = $(byText("Buttons")),
+    private final SelenideElement buttonsTab = $(byText("Buttons")),
             dblClickBtn = $(byText("Double Click Me")),
             resultDblClickBtn = $("#doubleClickMessage"),
             rghtClickBtn = $(byText("Right Click Me")),

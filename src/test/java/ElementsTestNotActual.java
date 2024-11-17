@@ -48,7 +48,7 @@
 //    public void deletingEntryFromTable() {
 //
 //    $(byText("Web Tables")).click();
-//    $$(".rt-tr-group").first().find("#delete-record-1").click();
+//    $(byText("Vega")).parent().$(byTitle("Delete")).click();
 //
 //            for(int i=0; i<$$(".rt-td").size(); i++) {
 //                $$(".rt-td").get(i).shouldNotHave(text("Vega"));
