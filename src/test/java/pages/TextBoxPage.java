@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TextBoxPage {
 
-    private SelenideElement textBoxTab = $(byText("Text Box")),
+    private final SelenideElement textBoxTab = $(byText("Text Box")),
             userNameInput = $("#userName"),
             userEmailInput = $("#userEmail"),
             currentAddressInput = $("#currentAddress"),
