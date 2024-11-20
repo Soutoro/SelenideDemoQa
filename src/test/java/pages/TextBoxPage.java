@@ -2,81 +2,48 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class TextBoxPage {
 
-    private final SelenideElement textBoxTab = $(byText("Text Box")),
-            userNameInput = $("#userName"),
-            userEmailInput = $("#userEmail"),
-            currentAddressInput = $("#currentAddress"),
-            permanentAddressInput = $("#permanentAddress"),
-            submitBtn = $("#submit"),
-            resultName = $("p#name"),
-            resultEmail = $("p#email"),
-            resultCurrentAddress = $("p#currentAddress"),
-            resultPermanentAddress = $("p#permanentAddress");
-
-    public TextBoxPage openTextBoxTab () {
-        textBoxTab.click();
-
-        return this;
+    public SelenideElement textBoxPage() {
+        return $x("//span[text()='Text Box']");
     }
 
-    public TextBoxPage setUserName(String value) {
-        userNameInput.setValue(value);
-
-        return this;
+    public SelenideElement userNameInput() {
+        return $x("//input[@id='userName']");
     }
 
-    public TextBoxPage setUserEmail(String value) {
-        userEmailInput.setValue(value);
-
-        return this;
+    public SelenideElement userEmailInput() {
+        return $x("//input[@id='userEmail']");
     }
 
-    public TextBoxPage setCurrentAddress(String value) {
-        currentAddressInput.setValue(value);
-
-        return this;
+    public SelenideElement userCurrentAddressInput() {
+        return $x("//textarea[@id='currentAddress']");
     }
 
-    public TextBoxPage setPermanentAddress(String value) {
-        permanentAddressInput.setValue(value);
-
-        return this;
+    public SelenideElement userPermanentAddressInput() {
+        return $x("//textarea[@id='permanentAddress']");
     }
 
-    public TextBoxPage submit() {
-        submitBtn.click();
-
-        return this;
+    public SelenideElement submitBtn() {
+        return $x("//button[@id='submit']");
     }
 
-    public TextBoxPage resultName(String name) {
-        resultName.shouldHave(text(name));
-
-        return this;
+    public SelenideElement userNameResult() {
+        return $x("//p[@id='name']");
     }
 
-    public TextBoxPage resultEmail(String email) {
-        resultEmail.shouldHave(text(email));
-
-        return this;
+    public SelenideElement userEmailResult() {
+        return $x("//p[@id='email']");
     }
 
-    public TextBoxPage resultCurrentAddress(String currentAddress) {
-        resultCurrentAddress.shouldHave(text(currentAddress));
-
-        return this;
+    public SelenideElement userCurrentAddressResult() {
+        return $x("//p[@id='currentAddress']");
     }
 
-    public TextBoxPage resultPermanentAddress(String permanentAddress) {
-        resultPermanentAddress.shouldHave(text(permanentAddress));
-
-        return this;
+    public SelenideElement userPermanentAddressResult() {
+        return $x("//p[@id='permanentAddress']");
     }
 
 }

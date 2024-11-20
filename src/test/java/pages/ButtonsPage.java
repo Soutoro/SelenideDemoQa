@@ -2,60 +2,36 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class ButtonsPage {
 
-    private final SelenideElement buttonsTab = $(byText("Buttons")),
-            dblClickBtn = $(byText("Double Click Me")),
-            resultDblClickBtn = $("#doubleClickMessage"),
-            rghtClickBtn = $(byText("Right Click Me")),
-            resultRghtClickBtn = $("#rightClickMessage"),
-            clickBtn = $(byText("Click Me")),
-            resultClickBtn = $("#dynamicClickMessage");
-
-    public ButtonsPage openButtonsTab() {
-        buttonsTab.click();
-
-        return this;
+    public SelenideElement buttonsPage() {
+        return $x("//span[text()='Buttons']");
     }
 
-    public ButtonsPage dblClickBtn() {
-        dblClickBtn.doubleClick();
-
-        return this;
+    public SelenideElement dblClickBtn() {
+        return $x("//button[@id='doubleClickBtn']");
     }
 
-    public ButtonsPage resultDblClickBtn() {
-        resultDblClickBtn.shouldBe(visible);
-
-        return this;
+    public SelenideElement rightClickBtn() {
+        return $x("//button[@id='rightClickBtn']");
     }
 
-    public ButtonsPage rghtClickBtn() {
-        rghtClickBtn.contextClick();
-
-        return this;
+    public SelenideElement clickBtn() {
+        return $x("//button[text()='Click Me']");
     }
 
-    public ButtonsPage resultRghtClickBtn() {
-        resultRghtClickBtn.shouldBe(visible);
-
-        return this;
+    public SelenideElement dblClickBtnPopup() {
+        return $x("//p[@id='doubleClickMessage']");
     }
 
-    public ButtonsPage clickBtn() {
-        clickBtn.click();
-
-        return this;
+    public SelenideElement rightClickBtnPopup() {
+        return $x("//p[@id='rightClickMessage']");
     }
 
-    public ButtonsPage resultClickBtn() {
-        resultClickBtn.shouldBe(visible);
-
-        return this;
+    public SelenideElement clickBtnPopup() {
+        return $x("//p[@id='dynamicClickMessage']");
     }
 
 }
