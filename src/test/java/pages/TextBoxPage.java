@@ -1,10 +1,16 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.$x;
 
 public class TextBoxPage {
+
+    Faker faker = new Faker(new Locale("ru"));
+    Faker emailFaker = new Faker();
 
     public SelenideElement textBoxPage() {
         return $x("//span[text()='Text Box']");
@@ -14,16 +20,32 @@ public class TextBoxPage {
         return $x("//input[@id='userName']");
     }
 
+    public String userNameValue() {
+        return faker.name().firstName();
+    }
+
     public SelenideElement userEmailInput() {
         return $x("//input[@id='userEmail']");
+    }
+
+    public String userEmailValue() {
+        return emailFaker.internet().emailAddress();
     }
 
     public SelenideElement userCurrentAddressInput() {
         return $x("//textarea[@id='currentAddress']");
     }
 
+    public String userCurrentAddressValue() {
+        return faker.address().streetAddress();
+    }
+
     public SelenideElement userPermanentAddressInput() {
         return $x("//textarea[@id='permanentAddress']");
+    }
+
+    public String userPermanentAddressValue() {
+        return faker.address().streetAddress();
     }
 
     public SelenideElement submitBtn() {

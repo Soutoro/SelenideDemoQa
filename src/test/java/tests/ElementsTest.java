@@ -23,6 +23,7 @@ public class ElementsTest extends TestBase {
         textBoxPageSteps.goToTextBoxPage();
         textBoxPageSteps.setValues();
         textBoxPageSteps.checkSaveValues();
+        sleep(10000);
     }
 
     @Test
