@@ -10,10 +10,10 @@ public class TextBoxPageSteps {
     CommonSteps commonSteps = new CommonSteps();
     TextBoxPage textBoxPage = new TextBoxPage();
 
-    private final String name = "Name";
-    private final String email = "Email@email.ru";
-    private final String currentAddress = "Current Address";
-    private final String permanentAddress = "Permanent Address";
+    private final String name = textBoxPage.userNameValue();
+    private final String email = textBoxPage.userEmailValue();
+    private final String currentAddress = textBoxPage.userCurrentAddressValue();
+    private final String permanentAddress = textBoxPage.userPermanentAddressValue();
 
     public void goToTextBoxPage() {
         commonSteps.goToPage(textBoxPage.textBoxPage());
